@@ -10,7 +10,7 @@ makeCacheMatrix <- function(x = matrix()) {
   setvalue<- function(inverse)m<<- inverse
   getvalue<-function()m
   list(get=get, set=set,getvalue=getvalue,setvalue=setvalue)
-}                                                                                                    
+}                                                                                                          
 
 
 ##This will calculate the inverse of matrix
