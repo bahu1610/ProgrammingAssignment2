@@ -1,15 +1,28 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+##This will make the required functions for the matrix whose inverse we want.
 
 makeCacheMatrix <- function(x = matrix()) {
+  m<- NULL
+  set<- function(y){
+    x<<-y
+    m<<-NULL
+  }
+  get<- function()x
+  setvalue<- function(inverse)m<<- inverse
+  getvalue<-function()m
+  list(get=get, set=set,getvalue=getvalue,setvalue=setvalue)
+}                                                                                                    
 
-}
 
-
-## Write a short comment describing this function
+##This will calculate the inverse of matrix
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+      m<- x$getvalue()
+      if(!is.null(m)){
+        message("getting cached data now")
+        return(m)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+      }
+      data<- x$get()
+      m<- solve(data,...)
+      x$setvalue(m)
+      m
 }
